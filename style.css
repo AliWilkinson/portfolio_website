@@ -1,0 +1,306 @@
+:root {
+  --primary-color: #c2e5ef;
+  --secondary-color: #daecf2;
+  --tertiary-color: #52616b;
+  --quaternary-color: #1e2022;
+  --box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  --default-font: "Nunito";
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color: var(--quaternary-color);
+  text-align: center;
+}
+
+.masthead {
+  padding: 50px;
+  background-image: url("img/network.jpg");
+  background-position: center;
+
+  margin: 0;
+}
+
+h2,
+h3 {
+  text-align: center;
+  margin: 0;
+}
+
+.content {
+  max-width: 1000px;
+  margin: auto;
+  padding: 5% 0;
+}
+
+.headshot {
+  max-width: 60%;
+  height: auto;
+  border-radius: 50%;
+  border: 2px solid #1e2022;
+  margin: 10% 0% 10% 30%;
+}
+
+.intro-para {
+  margin: 10% 0% 0% 0%;
+}
+
+p {
+  font-family: var(--secondary-font);
+  line-height: 30px;
+  color: var(--quaternary-color);
+  font-size: 15px;
+}
+
+.portfolio {
+  padding: 10px;
+}
+
+.projects_subhead {
+  font-style: italic;
+  text-align: center;
+}
+
+h4 {
+  margin: 2%;
+}
+
+.projects {
+  text-align: center;
+  margin: 0;
+}
+
+.project-img {
+  max-width: 70%;
+  height: auto;
+}
+
+a {
+  font-family: var(--secondary-font);
+}
+
+/* Style for the modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Style for the modal content */
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  max-height: 80%;
+  overflow-y: auto;
+}
+
+/* Style for the close button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Style for the scrollable content inside the modal */
+.modal-scrollable-content {
+  text-align: center;
+  padding: 5%;
+}
+
+.gh-txt {
+  font-style: italic;
+  padding: 0;
+}
+.modal-scrollable-content a {
+  color: var(--tertiary-color);
+  padding: 0;
+  margin: 0;
+  font-size: 40px;
+  text-decoration: none;
+}
+.modal-scrollable-content a:hover {
+  color: var(--quaternary-color);
+}
+
+.fixed-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+
+.logo {
+  width: 50px;
+}
+
+.contact {
+  background-color: var(--primary-color);
+  padding: 30px 0;
+  margin: 10% 0;
+  /* background: var(--quaternary-color); */
+  /* box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); */
+  /* color: var(--secondary-color); */
+  width: 100%;
+}
+
+.contact-title {
+  font-size: 20px;
+  color: var(--tertiary-color);
+  text-align: center;
+}
+
+.contact .icons {
+  text-align: center;
+  padding: 20px;
+  font-size: 30px;
+  text-decoration: none;
+}
+
+/* .projects-button {
+  background: none;
+  box-shadow: var(--box-shadow);
+  color: var(--tertiary-color);
+  border: 1px solid var(--tertiary-color);
+
+  font-size: 25px;
+
+  padding: 40px;
+
+  border-radius: 4px;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+.projects-button:hover {
+  color: var(--secondary-color);
+  background: var(--tertiary-color);
+} */
+.email-link {
+  display: flex;
+  justify-content: center;
+  color: var(--primary-color);
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.email-link:hover {
+  text-decoration: underline;
+  color: var(--primary-color);
+}
+
+.contact a {
+  color: var(--tertiary-color);
+}
+
+.contact a:hover {
+  color: var(--quaternary-color);
+}
+
+small {
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* 
+@media (max-width: 768px) {
+  .email-icons {
+    padding-top: 30px;
+  }
+
+  .name {
+    font-size: 50px;
+  }
+
+  .title {
+    font-size: 50px;
+  }
+
+  .projects-button {
+    padding: 20px;
+  }
+
+  .email,
+  .connect {
+    padding: 10%;
+  }
+
+  .email-box,
+  .connect-box {
+    max-width: 70%;
+    margin: 10% auto;
+    padding: 2%;
+    max-height: 70%;
+  }
+
+  .contact-email {
+    font-size: 15px;
+  }
+
+  small {
+    margin: 5%;
+  }
+} */
+
+/* @media (max-width: 576px) {
+  h1 {
+    font-size: 20px;
+    padding: 30px;
+  }
+
+  h2 {
+    font-size: 30px;
+  } */
+
+/* .container {
+    text-align: center;
+  }
+
+  .app-titles {
+    text-align: center;
+  }
+
+  .img-about {
+    padding: 10px;
+  }
+
+  .home-content {
+    text-align: center;
+  }
+
+  footer {
+    text-align: center;
+  }
+  .footer-title {
+    text-align: center;
+  }
+
+  .footer-text {
+    margin-bottom: 15px;
+  }
+
+  .projects-button {
+    padding: 15px;
+  } */

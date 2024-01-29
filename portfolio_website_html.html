@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Alexandra Wilkinson Data Scientist Portfolio"
+    />
+    <title>Alexandra Wilkinson</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;500&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/4cc14c8056.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!-- navigation bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#name" title="Homepage">
+          <img src="./img/logo.png" alt="" class="logo"
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#intro">Intro</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#portfolio">Portfolio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <br />
+
+    <!-- title and header - my name -->
+
+    <header class="masthead" id="name">
+      <h1>Alexandra Wilkinson</h1>
+      <h3>Data Scientist, based in Bath, England</h3>
+    </header>
+
+    <!-- bio section and photo -->
+    <section class="content" id="intro">
+      <div class="row">
+        <div class="col-6">
+          <img class="headshot" src="img/headshot.jpeg" />
+        </div>
+        <div class="col-6 intro-para">
+          <p>
+            I am a current student at the University of the West of England
+            studying for a MSc in Data Science and due to finish in January
+            2024.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- portfolio projects  -->
+
+    <div id="portfolio"></div>
+    <br />
+    <br />
+    <div class="portfolio">
+      <h2>Portfolio</h2>
+      <p class="projects_subhead">My projects I have been working on…</p>
+    </div>
+
+    <div class="row">
+      <div class="col-md-4 projects">
+        <h4>Obesity Classification</h4>
+        <a href="#portfolio" onclick="openModal('myModal1')">
+          <img class="project-img" src="img/ob_img.jpg" />
+        </a>
+      </div>
+      <!-- open up a modal for more info on each project  -->
+      <div id="myModal1" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal('myModal1')">&times;</span>
+          <div class="modal-scrollable-content">
+            <h4>
+              Machine learning project building classification models to predict
+              obesity category from lifestyle factors
+            </h4>
+            <p class="gh-txt">
+              The full report can be found on GitHub, along with the code and
+              data:
+            </p>
+            <a
+              href="https://github.com/AliWilkinson/Obesity_classification_machine_learning"
+              target="_blank"
+              title="Github"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <p>
+              By studying at masters level, I have achieved a solid foundation
+              in statistical analysis, machine learning, and programming
+              languages such as Python, R and SQL. My final project focussed on
+              analysing datasets to forecast the performance of UK domestic
+              solar panel systems. I evaluated current forecasting techniques
+              and proposed a new model to reliably and accurately predict power
+              output for commercial use. This project demonstrated my ability to
+              apply my analytical and programming skills to generate practical
+              solutions with meaningful impact. These enhanced skills will
+              enable me to quickly be part of the cutting-edge projects at…,
+              such as ………
+            </p>
+            <img class="project-img" src="img/ob_img.jpg" />
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 projects">
+        <h4>Bristol Air Data Management</h4>
+        <a href="#portfolio" onclick="openModal('myModal2')">
+          <img class="project-img" src="img/pollution-er.png" />
+        </a>
+      </div>
+
+      <div id="myModal2" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close" onclick="closeModal('myModal2')">&times;</span>
+          <!-- Content inside the modal that can be scrolled -->
+          <div class="modal-scrollable-content">
+            <img class="project-img" src="img/pollution-er.png" />
+            <p>
+              By studying at masters level, I have achieved a solid foundation
+              in statistical analysis, machine learning, and programming
+              languages such as Python, R and SQL. My final project focussed on
+              analysing datasets to forecast the performance of UK domestic
+              solar panel systems. I evaluated current forecasting techniques
+              and proposed a new model to reliably and accurately predict power
+              output for commercial use. This project demonstrated my ability to
+              apply my analytical and programming skills to generate practical
+              solutions with meaningful impact. These enhanced skills will
+              enable me to quickly be part of the cutting-edge projects at…,
+              such as ………
+            </p>
+            <img class="project-img" src="img/pollution-er.png" />
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 projects">
+        <h4>Chemical Classification</h4>
+        <a href="#portfolio" onclick="openModal('myModal3')">
+          <img class="project-img" src="img/chem_class_proj.jpg" />
+        </a>
+      </div>
+
+      <div id="myModal3" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close" onclick="closeModal('myModal3')">&times;</span>
+          <div class="modal-scrollable-content">
+            <h4>
+              The development of a statistical model to classfiy chemicals
+            </h4>
+            <p class="gh-txt">
+              The full Quarto report can be found on GitHub, along with the code
+              and data:
+            </p>
+            <a
+              href="https://github.com/AliWilkinson/Chemical_classification_project"
+              target="_blank"
+              title="Github"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <p>
+              By studying at masters level, I have achieved a solid foundation
+              in statistical analysis, machine learning, and programming
+              languages such as Python, R and SQL. My final project focussed on
+              analysing datasets to forecast the performance of UK domestic
+              solar panel systems. I evaluated current forecasting techniques
+              and proposed a new model to reliably and accurately predict power
+              output for commercial use. This project demonstrated my ability to
+              apply my analytical and programming skills to generate practical
+              solutions with meaningful impact. These enhanced skills will
+              enable me to quickly be part of the cutting-edge projects at…,
+              such as ………
+            </p>
+            <img class="project-img" src="img/chem_class_proj.jpg" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="contact"></div>
+    <br />
+    <br />
+    <section class="contact">
+      <h5 class="contact-title">
+        You can contact me via email, GitHub or LinkedIn
+      </h5>
+      <div class="email-icons">
+        <a href="mailto:afwilkinson98@gmail.com" class="email-link">
+          afwilkinson98@gmail.com
+        </a>
+        <div class="icons">
+          <a
+            href="https://github.com/AliWilkinson"
+            target="_blank"
+            title="Github"
+          >
+            <i class="fab fa-github"></i>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/afwilkinson/"
+            target="_blank"
+            title="LinkedIn"
+          >
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <small>
+      This website was coded by Ali Wilkinson, and is
+      <a href="https://github.com/AliWilkinson" target="_blank">
+        open-sourced!</a
+      >
+    </small>
+    <script src="script.js"></script>
+  </body>
+</html>
