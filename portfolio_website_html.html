@@ -73,6 +73,18 @@
       <h1>Alexandra Wilkinson</h1>
       <h3>Data Scientist, based in Bath, England</h3>
     </header>
+    <p class="photo">
+      Photo by
+      <a
+        href="https://unsplash.com/@nasa?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
+        >NASA</a
+      >
+      on
+      <a
+        href="https://unsplash.com/photos/photo-of-outer-space-Q1p7bh3SHj8?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
+        >Unsplash</a
+      >
+    </p>
 
     <!-- bio section and photo -->
     <section class="content" id="intro">
@@ -100,6 +112,8 @@
       <p class="projects_subhead">My projects I have been working on…</p>
     </div>
 
+    <!-- first row of projects -->
+
     <div class="row">
       <div class="col-md-4 projects">
         <h4>Obesity Classification</h4>
@@ -109,6 +123,7 @@
       </div>
       <!-- open up a modal for more info on each project  -->
       <div id="myModal1" class="modal">
+        <!-- machine learning obesity classification project -->
         <div class="modal-content">
           <span class="close" onclick="closeModal('myModal1')">&times;</span>
           <div class="modal-scrollable-content">
@@ -117,30 +132,182 @@
               obesity category from lifestyle factors
             </h4>
             <p class="gh-txt">
-              The full report can be found on GitHub, along with the code and
-              data:
+              The full report, code and data can be found on GitHub:
             </p>
             <a
               href="https://github.com/AliWilkinson/Obesity_classification_machine_learning"
               target="_blank"
               title="Github"
+              class="gt-project-link"
             >
               <i class="fab fa-github"></i>
             </a>
             <p>
-              By studying at masters level, I have achieved a solid foundation
-              in statistical analysis, machine learning, and programming
-              languages such as Python, R and SQL. My final project focussed on
-              analysing datasets to forecast the performance of UK domestic
-              solar panel systems. I evaluated current forecasting techniques
-              and proposed a new model to reliably and accurately predict power
-              output for commercial use. This project demonstrated my ability to
-              apply my analytical and programming skills to generate practical
-              solutions with meaningful impact. These enhanced skills will
-              enable me to quickly be part of the cutting-edge projects at…,
-              such as ………
+              This project tests five different machine learning classification
+              algorithms using data collected though a web survey from
+              individuals in Mexico, Peru and Colombia (Palechor and Manotas,
+              2019).
             </p>
-            <img class="project-img" src="img/ob_img.jpg" />
+            <p>
+              The data contains information on lifestyle factors and a category
+              of obesity level calculated from body mass index (BMI) and the
+              standards set out by the World Health Organization (WHO) and
+              Mexican Normativity (Palechor and Manotas, 2019). The original
+              researchers used a SMOTE method (Chawla et al., 2002) to balance
+              the classes from the data collected. This resulted in 77% of the
+              data being synthetically generated. This was performed to allow
+              the subsequent development of predictive models from this data
+              (Palechor and Manotas, 2019).
+            </p>
+            <p>
+              code for the exploratory data analysis, data preparation for the
+              models and model development is written in Python in a Jupyter
+              notebook and the libraries: Pandas, NumPy, Matplotlib, Seaborn,
+              Scipy, Math and Sklearn are used.
+            </p>
+            <p class="modal-subheading">Exploratory Data Analysis:</p>
+            <p>
+              The height and weight values show a moderate correlation of 0.46,
+              with a p value less than 0.05, showing that this is significant.
+              Figure 1 shows the relationship between Height and Weight. The
+              regression line shows the linear relationship between the two
+              variables
+            </p>
+            <img class="modal-img" src="img/ob_img1.jpg" />
+            <p class="fig-label">Figure 1</p>
+            <p>
+              The height and weight variables were combined to create the
+              variable BMI (body mass index): 𝐵𝑀𝐼 = 𝑤𝑒𝑖𝑔ℎ𝑡 / ℎ𝑒𝑖𝑔ℎ𝑡 2
+            </p>
+            <p>
+              The boxplot in Figure 2 shows there are no outliers in the
+              calculated BMI variable.
+            </p>
+            <img class="modal-img" src="img/ob_img2.jpg" />
+            <p class="fig-label">Figure 2</p>
+            <p>
+              Figure 3 shows the mean levels of physical activity for each
+              target group. The bar chart shows that there is a decreasing trend
+              in the levels of physical activity as the level of obesity
+              increases.
+            </p>
+            <img class="modal-img" src="img/ob_img3.jpg" />
+            <p class="fig-label">Figure 3</p>
+            <p>
+              Table 1 is a contingency table showing the frequency of the
+              observations in the dataset with a family history of obesity for
+              each obesity level. As the obesity level increases, there is an
+              increase in the difference between people reporting a family
+              history of obesity and those without a family history of obesity.
+              The result of the chi-squared test in Table 2 shows that there is
+              a significant association between these variables as the p-value
+              is less than 0.05.
+            </p>
+
+            <img class="tab" src="img/ob_img4.jpg" />
+            <p class="fig-label">Table 1</p>
+            <img class="tab2" src="img/ob_img5.jpg" />
+            <p class="fig-label">Table 2</p>
+
+            <p class="modal-subheading">Data Preparation for the Models:</p>
+            <ul class="data-prep-list">
+              <li>
+                The BMI column was dropped due to the categories for the obesity
+                levels being determined by the BMI score. This means the BMI was
+                the same as the target variable in a continuous format.
+              </li>
+              <li>
+                Categorical features of the data were encoded to allow the data
+                to work with machine learning models. Binary variables were
+                encoded to make the values 0 and 1, ordinal variables were
+                encoded with values to allow the order of the categories to be
+                maintained. The single nominal variable, MTRANS (Transportation
+                used) was encoded using one-hot-encoding to ensure no order was
+                introduced into the categories of this variable.
+              </li>
+              <li>
+                The data was split into training, test and validation sets with
+                a split of 70%, 15%, 15% respectively.
+              </li>
+              <li>
+                Normalisation was used to ensure all features were on the same
+                scale to prevent scales affect model performance.
+              </li>
+            </ul>
+            <p class="modal-subheading">Classification Models:</p>
+            <p>
+              Supervised learning algorithms were chosen for this problem as the
+              goal is to classify the observations into one of seven categories.
+              Five different algorithms were trained and tested for this
+              classification problem. A grid search approach was used during
+              hyperparameter tuning for the models, during which a five-fold
+              cross validation was performed to analyse the performance of the
+              model with each hyperparameter combination. The training set was
+              used to train the models and the testing set was used to test and
+              tune the hyperparameters. The validation set was not touched
+              throughout this process to prevent data leakage. This set was
+              saved to evaluate the performance of the best model using unseen
+              data.
+            </p>
+            <p class="modal-subheading">Model Evaluation</p>
+            <p>
+              The models with the hyperparameters that give the best
+              performances were then tested using a ten-fold cross validation
+              approach. Figure 4 and Table 3 show a comparison of the accuracy
+              scores of the models. The standard deviations of the accuracy
+              scores are shown in Table 3. Many of the models performed well
+              with an accuracy score over 78%. The adaptive boosting model
+              performed poorly compared to the other models with an accuracy
+              score of 45%. The best performing model was the Random Forest
+              model with an accuracy score of 86%, followed by the Gradient
+              Boosting model with an accuracy score of 83%.
+            </p>
+            <img class="modal-img" src="img/ob_img.jpg" />
+            <p class="fig-label">Figure 4</p>
+            <img class="tab" src="img/ob_img7.jpg" />
+            <p class="fig-label">Table 3</p>
+            <p>
+              The validation set was used to show the out-of-sample performance
+              of the final Random Forest model. Table 4 shows the accuracy,
+              weighted F1 score and the area under curve receiver operator
+              characteristic (AUC-ROC) for the random forest model with the
+              validation set. These scores show that the Random Forest model
+              performs well. These scores show that the model is not likely to
+              be overfitting the data as the model shows similar accuracy
+              performance on the training and validation set
+            </p>
+            <img class="tab2" src="img/ob_img8.jpg" />
+            <p class="fig-label">Table 4</p>
+            <p>
+              Figure 5 shows the importance of each feature is in the Random
+              Forest model. Age appears to be the most important feature,
+              followed by frequency of vegetables eaten (FCVC), number of main
+              meals (NCP), Time using Technology (TUE), consumption of water
+              daily (CH2O) and physical activity frequency (FAF). To further
+              develop the model, feature engineering could be performed. For
+              example, selecting features based on a feature importance
+              threshold to be included in the model, and comparing the
+              performance of the model with all the feature to the model with
+              the engineered features.
+            </p>
+            <img class="modal-img" src="img/ob_img9.jpg" />
+            <p class="modal-subheading">References</p>
+            <p class="references">
+              Chawla, N.V., Bowyer, K.W., Hall, L.O. and Kegelmeyer, W.P. (2002)
+              SMOTE: Synthetic Minority Over sampling Technique. Journal of
+              Artificial Intelligence Research [online]. 16, pp. 321–357.
+              Available from:
+              https://www.jair.org/index.php/jair/article/view/10302 [Accessed
+              23 August 2023].
+            </p>
+            <p class="references">
+              F.M. and Manotas, A. de la H. (2019) Dataset for estimation of
+              obesity levels based on eating habits and physical condition in
+              individuals from Colombia, Peru and Mexico. Data in Brief
+              [online]. 25, p. 104344. Available from:
+              https://www.sciencedirect.com/science/article/pii/S2352340919306985
+              [Accessed 23 August 2023].
+            </p>
           </div>
         </div>
       </div>
@@ -156,23 +323,79 @@
         <!-- Modal content -->
         <div class="modal-content">
           <span class="close" onclick="closeModal('myModal2')">&times;</span>
-          <!-- Content inside the modal that can be scrolled -->
+          <!-- Data managment project -->
           <div class="modal-scrollable-content">
-            <img class="project-img" src="img/pollution-er.png" />
+            <h4>Data Management Project using Bristol Air Quality Data</h4>
+            <p class="gh-txt">Code and data can be found on GitHub:</p>
+            <a
+              href="https://github.com/AliWilkinson/Pollution_Data_management_project/tree/main"
+              target="_blank"
+              title="Github"
+              class="gt-project-link"
+            >
+              <i class="fab fa-github"></i>
+            </a>
             <p>
-              By studying at masters level, I have achieved a solid foundation
-              in statistical analysis, machine learning, and programming
-              languages such as Python, R and SQL. My final project focussed on
-              analysing datasets to forecast the performance of UK domestic
-              solar panel systems. I evaluated current forecasting techniques
-              and proposed a new model to reliably and accurately predict power
-              output for commercial use. This project demonstrated my ability to
-              apply my analytical and programming skills to generate practical
-              solutions with meaningful impact. These enhanced skills will
-              enable me to quickly be part of the cutting-edge projects at…,
-              such as ………
+              This project demonstrates my skills in data management techniques:
+              ER models; relational databases; SQL; using Python to create,
+              connect and populate a SQL database; NoSQL databases; MongoDB and
+              json files.
+            </p>
+            <p>
+              The dataset contains information from different air sensors
+              located around Bristol. It includes information on the sensors,
+              such as name, location and coordinates as well as data on the
+              levels of pollutants detected by the sensors.
+            </p>
+            <p>
+              An entity-relationship model was created to model the
+              relationships within the dataset, Figure 1. The Schema entity
+              describes the units of measurement for Readings entity. The
+              diagram shows the one-to-many relationship between the Site and
+              Readings entities with primary keys as Site_ID and Reading_ID.
+              Site_ID is the foreign key in the Readings entity.
             </p>
             <img class="project-img" src="img/pollution-er.png" />
+            <p class="fig-label">Figure 1</p>
+            <p>
+              The dataset was
+              <a
+                href="https://github.com/AliWilkinson/Pollution_Data_management_project/blob/main/crop.py"
+                target="_blank"
+                title="GitHub crop.py"
+                >cropped</a
+              >
+              for values earlier than 2010 and
+              <a
+                href="https://github.com/AliWilkinson/Pollution_Data_management_project/blob/main/clean.py"
+                target="_blank"
+                title="GitHub clean.py"
+                >cleaned</a
+              >
+              for mismatching site entries.
+            </p>
+            <p>
+              A
+              <a
+                href="https://github.com/AliWilkinson/Pollution_Data_management_project/blob/main/populate.py"
+                target="_blank"
+                title="GitHub populate.py"
+                >python file</a
+              >
+              was written to create and populate a relational database.
+            </p>
+            <p>SQL queries were written and executed from this database:</p>
+            <div class="row">
+              <div class="col-md-4">
+                <img class="sql-img" src="img/query-a-answer.png" />
+              </div>
+              <div class="col-md-4">
+                <img class="sql-img" src="img/query-b-answer.png" />
+              </div>
+              <div class="col-md-4">
+                <img class="sql-img" src="img/query-c-answer.png" />
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -185,7 +408,7 @@
       </div>
 
       <div id="myModal3" class="modal">
-        <!-- Modal content -->
+        <!-- Advanced statistics chemical classification project -->
         <div class="modal-content">
           <span class="close" onclick="closeModal('myModal3')">&times;</span>
           <div class="modal-scrollable-content">
@@ -193,30 +416,143 @@
               The development of a statistical model to classfiy chemicals
             </h4>
             <p class="gh-txt">
-              The full Quarto report can be found on GitHub, along with the code
-              and data:
+              The full Quarto report, code and data can be found on GitHub:
             </p>
             <a
               href="https://github.com/AliWilkinson/Chemical_classification_project"
               target="_blank"
               title="Github"
+              class="gt-project-link"
             >
               <i class="fab fa-github"></i>
             </a>
             <p>
-              By studying at masters level, I have achieved a solid foundation
-              in statistical analysis, machine learning, and programming
-              languages such as Python, R and SQL. My final project focussed on
-              analysing datasets to forecast the performance of UK domestic
-              solar panel systems. I evaluated current forecasting techniques
-              and proposed a new model to reliably and accurately predict power
-              output for commercial use. This project demonstrated my ability to
-              apply my analytical and programming skills to generate practical
-              solutions with meaningful impact. These enhanced skills will
-              enable me to quickly be part of the cutting-edge projects at…,
-              such as ………
+              The brief for this project was to create a classification tool for
+              use by a company doing chemical analysis. They wished to know if
+              they need to measure all variables, or if a subset of variables
+              could achieve the same out-of-sample classification performance.
+              Being able to use a subset of variables would mean faster
+              processing times; but they would not wish to sacrifice
+              classification performance for the sake of marginal speed gains.
             </p>
-            <img class="project-img" src="img/chem_class_proj.jpg" />
+            <p>
+              The data contained information on different chemicals and their
+              classes. There were 20 numerical variables and one categorical
+              variable representing the target variable.
+            </p>
+            <p>
+              The report is created as a Quarto document and the exploratory
+              data analysis and model development is written in R.
+            </p>
+            <p class="modal-subheading">
+              Data Preparation and Exploratory Data Analysis
+            </p>
+            <p>
+              The data was checked for missingness. Only 2% of the data was
+              found to be missing, therefore only complete cases were used in
+              EDA and model development.
+            </p>
+            <p>
+              The data was first split into training, test and validation sets
+              with a split of 50% training, 25% test and 25% validation.
+            </p>
+            <p>
+              The training set was examined to view outliers; the distribution
+              of the whole training set; distribution of samples between
+              classes; the distribution of each variable for each class and
+              descriptive statistics for each variable. Figures for these can be
+              found in the
+              <a
+                href="https://github.com/AliWilkinson/Chemical_classification_project/blob/main/scripts/Chem_analysis.pdf"
+                target="_blank"
+              >
+                report on the GitHub repository.
+              </a>
+            </p>
+            <p>
+              A correlation plot was created to view correlations between the
+              variables, Figure 1.
+            </p>
+            <img class="modal-img" src="img/chem_class_proj.jpg" />
+            <p class="fig-label">Figure 1</p>
+            <p>
+              Variable V14 with V13 and V17 appear to be strongly negatively
+              correlated. Variable V17 and V15 also appear to be strongly
+              negatively correlated. Variables V14 and V15 appear to have
+              moderate positive correlation with each other. This means that
+              there are possible relationships between the variables and means
+              the dimensionality of the dataset can potentially be reduced using
+              Principal Component Analysis (PCA).
+            </p>
+            <p class="modal-subheading">Principal Components Analysis (PCA)</p>
+            <p>
+              Performing parallel analysis prior to PCA showed that 5 dimensions
+              should be retained, as these had eigenvalues greater than one.
+              This showed how much variation is being explained more than by
+              chance, and so how many dimensions to retain to explain this
+              variation. Table 1 shows the linear combination of the variables
+              for each principal component created by the PCA. It shows the
+              results of all 20 variables captured by 5 dimensions showing that
+              we can still capture the same information from the observations
+              but with fewer dimensions.
+            </p>
+            <img class="modal-img" src="img/cc_img2.jpg" />
+            <p class="fig-label">Table 1</p>
+
+            <p>
+              Principal component 1 is responsible for capturing the largest
+              variation in the data. It shows a linear combination of the
+              variables. The variables 13, 14, 15 and 17 are captured the most
+              by principal component 1. The high negative correlation between
+              variables 14 and 17 is captured here by showing that they have
+              similar magnitudes in the opposite directions for their column
+              normed scores. The high negative correlation between 17 and 15,
+              and 13 and 14 are also captured by principal component 1, as well
+              as the positive correlation between variables 14 and 15. These
+              correlations were shown to be present in the original training
+              dataset. This means that principal component 1 can represent the
+              results covered by these variables and reduces the need for all
+              four raw variables to be in the data. Principal component 2
+              captures variable 5 in one direction and variable 6 in the other
+              direction. Principal component 3 predominantly describes variable
+              18, and variable 12 to a slightly lesser extent in the opposite
+              direction. Principal component 4 captures variable 4. It also
+              captures variables 9, 3 and 7 to a lesser extent in the opposite
+              direction. Principal component 5 predominantly captures variable
+              1; also, variables 2 and 12 in the same direction and 11 and 5 in
+              the opposite direction.
+            </p>
+            <p class="modal-subheading">Classification Models</p>
+            <p>
+              Five different classification models were trained and tested:
+              Random Forest, K-Nearest Neighbours (KNN), Model Based
+              Discriminant Analysis (MBDA), Linear Discriminant Analysis (LDA)
+              and Quadratic Discriminant Analysis (QDA). Model performance was
+              compared using the accuracy metric.
+            </p>
+            <p>
+              Accuracy was chosen as it gives an overall representation of the
+              performance of the model. The accuracy is calculated by the total
+              number of correct predictions over the total number of
+              observations.
+            </p>
+            <img class="tab" src="img/cc_img3.jpg" />
+            <p class="fig-label">Table 2</p>
+            <p>
+              Table 4 shows the best performing model to be the Random Forest
+              model with an accuracy of 86.93% on the in-sample test data. This
+              model had a much higher accuracy than the other models. The model
+              also had a greater performance on the out-of-sample validation
+              set, with an accuracy of 89.89%. This suggests that the Random
+              Forest model is not overfitting the training data and demonstrates
+              how it performs on unseen data. Due to the nature of the
+              algorithm, the Random Forest model was performed on all features
+              of the data, without prior PCA. Therefore, for optimal
+              classification performance, the findings from this report suggest
+              that all variables that were present in the original dataset
+              should be measured and included and used in the Random Forest
+              model.
+            </p>
           </div>
         </div>
       </div>
