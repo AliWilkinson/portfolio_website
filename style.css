@@ -179,6 +179,12 @@ a {
   height: auto;
   margin: 5%;
 }
+
+.json-img {
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
 .gh-txt {
   font-style: italic;
   padding: 0;
@@ -227,6 +233,9 @@ a {
   text-decoration: none;
 }
 
+.small {
+  text-align: center;
+}
 /* .projects-button {
   background: none;
   box-shadow: var(--box-shadow);

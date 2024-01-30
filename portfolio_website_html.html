@@ -347,16 +347,17 @@
               such as name, location and coordinates as well as data on the
               levels of pollutants detected by the sensors.
             </p>
+            <p class="modal-subheading">Relational Databases</p>
             <p>
               An entity-relationship model was created to model the
-              relationships within the dataset, Figure 1. The Schema entity
-              describes the units of measurement for Readings entity. The
-              diagram shows the one-to-many relationship between the Site and
-              Readings entities with primary keys as Site_ID and Reading_ID.
-              Site_ID is the foreign key in the Readings entity.
+              relationships within the dataset. The Schema entity describes the
+              units of measurement for Readings entity. The diagram shows the
+              one-to-many relationship between the Site and Readings entities
+              with primary keys as Site_ID and Reading_ID. Site_ID is the
+              foreign key in the Readings entity.
             </p>
             <img class="project-img" src="img/pollution-er.png" />
-            <p class="fig-label">Figure 1</p>
+            <p class="fig-label">ER diagram</p>
             <p>
               The dataset was
               <a
@@ -396,6 +397,69 @@
                 <img class="sql-img" src="img/query-c-answer.png" />
               </div>
             </div>
+            <p class="fig-label">SQL queries</p>
+            <p>
+              A
+              <a
+                href="https://github.com/AliWilkinson/Pollution_Data_management_project/blob/main/insert-100.py"
+                target="_blank"
+                title="GitHub insert-100"
+                >python file</a
+              >
+              was also written to create SQL queries to insert the first 100
+              rows into the Readings entity.
+            </p>
+            <p class="modal-subheading">NoSQL Databases</p>
+            <p>
+              One site was taken from the relational database to be modelled to
+              a NoSQL database. A key-value approach was used, and the data
+              stored as a JSON file before being imported to a MongoDB database.
+            </p>
+            <div class="row">
+              <div class="col-md-6">
+                <img class="json-img" src="img/createJSONimg.png" />
+                <p class="fig-label">Python code to create JSON file</p>
+              </div>
+              <div class="col-md-6">
+                <img class="json-img" src="img/JSONfilesnip.png" />
+                <p class="fig-label">JSON file snippet</p>
+              </div>
+            </div>
+            <p>
+              The data is organised in a denormalized model with embedded
+              documents due to the one-to-many relationship of one site to many
+              readings. One document contains the data for the site which
+              includes the site id, site name and its geo location. Inside this,
+              the document for the readings is embedded. The key readings
+              contains an array for each reading for the site. This document was
+              placed inside one collection called sites within the database.
+              This approach was used over having one document for each reading
+              and embedding the site data into each of these as this would cause
+              much repetition of the site data. The denormalized model with
+              embedded documents was used over the normalised model due to
+              faster querying. As only one collection needs to be queried,
+              results are returned faster. Also, with the normalised model, the
+              documents for each site would contain large, potentially growing
+              arrays of reading ids.
+            </p>
+            <p>
+              The database was queried to return the readings for the year 2023
+              sorted by the concentration of oxides of nitrogen (NOx) from
+              highest to lowest:
+            </p>
+            <img src="img/mdb-q.jpg" class="json-img" />
+            <p class="fig-label">MongoDB query</p>
+            <img src="img/mongoDBquery.png" class="json-img" />
+            <p class="fig-label">Query result</p>
+            <p>
+              The full NoSQL report can be found on
+              <a
+                href="https://github.com/AliWilkinson/Pollution_Data_management_project/blob/main/nosql.md"
+                target="_blank"
+                title="GitHub NoSQL"
+                >GitHub.</a
+              >
+            </p>
           </div>
         </div>
       </div>
@@ -588,12 +652,12 @@
       </div>
     </section>
 
-    <small>
-      This website was coded by Ali Wilkinson, and is
+    <p class="small">
+      This website was coded by Alexandra Wilkinson, and is
       <a href="https://github.com/AliWilkinson" target="_blank">
         open-sourced!</a
       >
-    </small>
+    </p>
     <script src="script.js"></script>
   </body>
 </html>
