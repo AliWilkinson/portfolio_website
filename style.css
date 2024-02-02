@@ -139,14 +139,26 @@ a {
   padding: 5%;
 }
 
+.project-content {
+  margin: 5%;
+}
 .modal-subheading {
   margin: 2.5%;
   font-weight: bold;
   font-size: larger;
 }
 
+.skills {
+  font-style: italic;
+}
+
 .modal-img {
   max-width: 40%;
+  height: auto;
+}
+
+.dens-bp {
+  max-width: 25%;
   height: auto;
 }
 
