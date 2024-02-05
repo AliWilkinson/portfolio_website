@@ -225,61 +225,61 @@
 
               <ul class="data-prep-list">
                 <li></li>
-
                 <li></li>
                 <li></li>
                 <li></li>
               </ul>
-              <p class="modal-subheading">Classification Models:</p>
-              <p></p>
-              <p class="modal-subheading">Model Evaluation</p>
-              <p></p>
-              <img class="modal-img" src="img/ob_img.jpg" />
-              <p class="fig-label">Figure 4</p>
-              <img class="tab" src="img/ob_img7.jpg" />
-              <p class="fig-label">Table 3</p>
-              <p>
-                The validation set was used to show the out-of-sample
-                performance of the final Random Forest model. Table 4 shows the
-                accuracy, weighted F1 score and the area under curve receiver
-                operator characteristic (AUC-ROC) for the random forest model
-                with the validation set. These scores show that the Random
-                Forest model performs well. These scores show that the model is
-                not likely to be overfitting the data as the model shows similar
-                accuracy performance on the training and validation set
+              <p class="modal-subheading">
+                Incorporate target lags and weather data to build three
+                long-term, multivariate forecasting models: statistical, machine
+                learning and deep learning.
               </p>
-              <img class="tab2" src="img/ob_img8.jpg" />
-              <p class="fig-label">Table 4</p>
-              <p>
-                Figure 5 shows the importance of each feature is in the Random
-                Forest model. Age appears to be the most important feature,
-                followed by frequency of vegetables eaten (FCVC), number of main
-                meals (NCP), Time using Technology (TUE), consumption of water
-                daily (CH2O) and physical activity frequency (FAF). To further
-                develop the model, feature engineering could be performed. For
-                example, selecting features based on a feature importance
-                threshold to be included in the model, and comparing the
-                performance of the model with all the feature to the model with
-                the engineered features.
+              <p></p>
+              <p class="modal-subheading">
+                Use predictions for twelve months to compare results using plots
+                and performance metrics.
               </p>
-              <img class="modal-img" src="img/ob_img9.jpg" />
+              <p>
+                The models were used to make predictions for the twelve-month
+                period at the end of the dataset. The predictions from the
+                models were compared using three performance metrics: RMSE, MAE
+                and R2, the results of these are show in Table x. The LSTM-RNN
+                produced the best values for the RMSE and MAE and the
+                second-best value for the R2, with the SARIMAX II model
+                producing the best R2 result. The model predictions were also
+                compared using visualisations. Figure x shows each of the
+                predictions made by the models plotted next to the true power
+                output values for that period. Both SARIMAX models and XGB model
+                without normalisation have a similar pattern to their
+                predictions that mimics the shape of the true values but
+                overestimates the power outputs for the 04/23 – 06/23 and the
+                08/23 months. Normalisation appears to stop the XGB model
+                overestimating the power outputs. This model gives close
+                estimates of power output up to the 06/23, then starts to
+                underestimate. The LSTM-RNN model produces a curve to estimate
+                the power output, following the pattern of the true values less
+                closely than the other models, but gives more accurate
+                predictions overall. Figure y shows linear regression for the
+                predicted monthly power outputs compared against the true
+                outputs. The R2 values, Table x, correspond to these. The more
+                accurate the model predictions, the closer the points lie to the
+                line. Models appear to make better predictions when the true
+                power output is low, these low power output values correspond to
+                the winter months. However, the winter months for the test set
+                lie the closest in time to the end of the training set, which
+                may be causing there more accurate predictions. Future work
+                could use different length horizon times for a model to evaluate
+                whether winter months or values closer to the end of the
+                training set are predicted more accurately.
+              </p>
+              <img class="tab" src="img/metrics_tab.png" />
+              <p class="fig-label">Table x</p>
+              <img class="bigger-img" src="img/truth_pred_plot.png" />
+              <p class="fig-label">Figure x</p>
+              <img class="bigger-img" src="img/lr.png" />
+              <p class="fig-label">Figure y</p>
+
               <p class="modal-subheading">References</p>
-              <p class="references">
-                Chawla, N.V., Bowyer, K.W., Hall, L.O. and Kegelmeyer, W.P.
-                (2002) SMOTE: Synthetic Minority Over sampling Technique.
-                Journal of Artificial Intelligence Research [online]. 16, pp.
-                321–357. Available from:
-                https://www.jair.org/index.php/jair/article/view/10302 [Accessed
-                23 August 2023].
-              </p>
-              <p class="references">
-                F.M. and Manotas, A. de la H. (2019) Dataset for estimation of
-                obesity levels based on eating habits and physical condition in
-                individuals from Colombia, Peru and Mexico. Data in Brief
-                [online]. 25, p. 104344. Available from:
-                https://www.sciencedirect.com/science/article/pii/S2352340919306985
-                [Accessed 23 August 2023].
-              </p>
             </div>
           </div>
         </div>

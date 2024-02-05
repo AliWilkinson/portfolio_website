@@ -157,6 +157,11 @@ a {
   height: auto;
 }
 
+.bigger-img {
+  max-width: 60%;
+  height: auto;
+}
+
 .dens-bp {
   max-width: 25%;
   height: auto;
