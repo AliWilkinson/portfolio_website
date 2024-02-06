@@ -223,12 +223,37 @@
                 with Monthly Power Generation and the corresponding p-value.
               </p>
 
-              <ul class="data-prep-list">
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-              </ul>
+              <img class="bigger-img" src="img/ts.png" />
+              <p class="fig-label">
+                Figure 5 Line plot of the original Time Series: Monthly Power
+                Generation over time (green). With the rolling mean (blue) and
+                the rolling standard deviation (orange)
+              </p>
+              <img class="modal-img" src="img/ts_each_var.png" />
+              <p class="fig-label">
+                Figure 6 Right: time series for each variable and the target
+                variable. Left: decomposition results (trend and seasonality)
+                corresponding to the variable on the right.
+              </p>
+              <img class="bigger-img" src="img/vars_acf.png" />
+              <p class="fig-label">
+                Figure 7 ACF plots for each exogenous feature.
+              </p>
+              <img class="modal-img" src="img/target_acf.png" />
+              <p class="fig-label">
+                Figure 8 ACF plot for detrended Monthly Power Generation.
+              </p>
+              <p>
+                The data was split into the a training set and testing set as
+                shown in Figure 9, with the testing set being the final 12
+                months of data.
+              </p>
+              <img class="modal-img" src="img/split.png" />
+              <p class="fig-label">
+                Figure 9 The training (blue) and test split of the data
+                (orange).
+              </p>
+
               <p class="modal-subheading">
                 Incorporate target lags and weather data to build three
                 long-term, multivariate forecasting models: statistical, machine
