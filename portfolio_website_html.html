@@ -34,45 +34,47 @@
   </head>
   <body>
     <!-- navigation bar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#name" title="Homepage">
-          <img src="./img/logo.png" alt="" class="logo"
-        /></a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="#intro">Intro</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#portfolio">Portfolio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#contact">Contact</a>
-            </li>
-          </ul>
+    <div class="nav-bar">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#name" title="Homepage">
+            <img src="./img/logo.png" alt="" class="logo"
+          /></a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="#intro">Intro</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#portfolio">Portfolio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contact">Contact</a>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </div>
     <br />
 
     <!-- title and header - my name -->
 
-    <header class="masthead" id="name">
+    <div class="masthead" id="name">
       <h1>Alexandra Wilkinson</h1>
       <h3>Data Scientist, based in Bath, England</h3>
-    </header>
+    </div>
     <p class="photo">
       Photo by
       <a
@@ -89,10 +91,10 @@
     <!-- bio section and photo -->
     <section class="content" id="intro">
       <div class="row">
-        <div class="col-6">
+        <div class="col-sm-6">
           <img class="headshot" src="img/headshot.jpeg" />
         </div>
-        <div class="col-6 intro-para">
+        <div class="col-sm-6 intro-para">
           <p>
             I am a current student at the University of the West of England
             studying for a MSc in Data Science and due to finish in January
@@ -212,32 +214,84 @@
                 variable. Included: original weather variables and created
                 variable: Mean Monthly Temperature.
               </p>
+              <br />
               <img class="modal-img" src="img/sp_scatters.jpg" />
               <p class="fig-label">
                 Figure 4 Plots of Monthly Power Generation (kWh) against each
                 variable
               </p>
+              <br />
               <img class="modal-img" src="img/sp_tab_corr.jpg" />
               <p class="fig-label">
                 Table 1 Values of the Spearman’s Correlation for each variable
                 with Monthly Power Generation and the corresponding p-value.
               </p>
-
+              <br />
+              <p>
+                From the correlations and the p-values, all the variables have
+                significant correlations to the target, so are maintained for
+                use in the models as exogenous features.
+              </p>
+              <p>
+                Figure 5 shows the time series of the target (Monthly Power
+                Generation), along with it’s rolling mean and rolling standard
+                deviation. There appears to be a seasonal pattern as well as a
+                downward trend in this data. To establish if the features and
+                the target are stationary, each feature was decomposed, this is
+                shown in Figure 6. Figure 6a, c, e, g and i show the plotted
+                time series and b, d, f, h, and j show the corresponding
+                decomposed variables. Again, the target (6a and 6b) shows a
+                downward trend and seasonality. The Mean Monthly Temperature
+                (6f) may have a slight upward trend. The other exogenous
+                features do not show any clear trends. The features Sun Hours
+                (6d), Mean Monthly Temperature (6f) and No. Frost Days (6j)
+                display clear seasonal components.
+              </p>
               <img class="bigger-img" src="img/ts.png" />
               <p class="fig-label">
                 Figure 5 Line plot of the original Time Series: Monthly Power
                 Generation over time (green). With the rolling mean (blue) and
                 the rolling standard deviation (orange)
               </p>
+              <br />
               <img class="modal-img" src="img/ts_each_var.png" />
               <p class="fig-label">
                 Figure 6 Right: time series for each variable and the target
                 variable. Left: decomposition results (trend and seasonality)
                 corresponding to the variable on the right.
               </p>
+              <br />
+              <p>
+                Augmented Dickey-Fuller (ADF) tests were also performed on the
+                exogenous features, the target, the differenced target, and the
+                seasonally differenced target. The results from these showed the
+                exogenous features to be stationary due to trend and the target
+                to not be stationary. They also showed that differencing the
+                target once and seasonally differencing the target once made the
+                target stationary.
+              </p>
+              <p>
+                ACF plots were also created for each exogenous feature to view
+                autocorrelation. Figure 7a, c and d show clear correlations
+                between the lags of the features: Sun Hours, No. Frost Days and
+                Mean Monthly Temperature. Strong negative correlations at lag
+                six can be seen for all these features and strong positive
+                correlations can be seen at lag twelve. This shows the presence
+                of a yearly season structure in the data. From Figure 7b and
+                Figure 6h there appears to be no seasonal component or trend in
+                the Rain mm feature.
+              </p>
               <img class="bigger-img" src="img/vars_acf.png" />
               <p class="fig-label">
                 Figure 7 ACF plots for each exogenous feature.
+              </p>
+              <p>
+                An ACF plot was also created for the detrended target to view
+                how many data points the seasonal component repeats over. A peak
+                outside of the blue region, greater than zero, at lag twelve
+                means the values have statistically significant correlations to
+                the observation twelve data points prior, indicating a yearly
+                seasonal component.
               </p>
               <img class="modal-img" src="img/target_acf.png" />
               <p class="fig-label">
@@ -259,7 +313,147 @@
                 long-term, multivariate forecasting models: statistical, machine
                 learning and deep learning.
               </p>
-              <p></p>
+              <p>
+                The three types of models were chosen to evaluate a wide range
+                of forecasting methods. Lags of the target variable and weather
+                data were used to train the models. This was done as previously
+                some types of models, such as the XGB, had not been developed
+                using previous power outputs, only using weather features.
+                Additionally, these models are built for longer term predictions
+                as opposed to one day-ahead forecasting. The review by Mellit et
+                al. (2020) states few studies focus on long-term forecasting and
+                expresses the need for its investigation.
+              </p>
+              <p>
+                The full methods for the development of the models can be found
+                in the
+                <a
+                  href="https://github.com/AliWilkinson/Solar_panel_power_forecasting/tree/main"
+                  target="_blank"
+                  title="Solar Panel power forecasting report"
+                >
+                  report on GitHub.</a
+                >
+              </p>
+              <p>
+                Pmdarima was used to find the orders of autoregressive and
+                moving average parts of the SARIMAX model. A function was
+                created to test different values of d and D which represent how
+                many times the time series should be differenced or seasonally
+                differenced to make it stationary, see Figure 10. The model that
+                produced the lowest Akaike’s Information Criterion value was
+                chosen to be the final model. The model was then evaluated using
+                statsmodels plot_diagonstics summary functions.
+              </p>
+              <img class="code-img" src="img/sp_sarimax.png" />
+              <p class="fig-label">
+                Figure 10 Code for the function to test different values of d
+                and D and find the best SARIMAX model.
+              </p>
+              <p>
+                A second SARIMAX model was developed to evaluate if seasonal
+                differencing of the exogenous features altered model performance
+                or fit. Seasonal differencing was performed on the exogenous
+                features that showed seasonality and same process as above was
+                followed.
+              </p>
+              <p>
+                Seasonally differencing the exogenous features improved model
+                performance and the distribution of residuals. A full evaluation
+                can be seen in the
+                <a
+                  href="https://github.com/AliWilkinson/Solar_panel_power_forecasting/tree/main"
+                  target="_blank"
+                  title="Solar Panel
+                power forecasting report"
+                  >report on GitHub.</a
+                >
+              </p>
+              <p>
+                The XGBoost models were developed using the XGB library. The
+                scikit-learn library was used for hyperparameter tuning and
+                performance evaluation.
+              </p>
+              <p>
+                One XGB model was built without prior normalisation of the data
+                and another XGB model with normalisation. Feature scales can
+                affect the predictions of XGB, so this comparison was performed
+                to test the performance of the XGB model with and without
+                normalisation.
+              </p>
+              <p>
+                A function was created to frame the data as a supervised
+                learning problem as to allow the lag data to be used with the
+                XGB model, see Figure 11.
+              </p>
+              <img class="code-img" src="img/sp_xgb.png" />
+              <p class="fig-label">
+                Figure 11 Code for the function that takes time series data to
+                frame as a supervised learning problem.
+              </p>
+              <p>
+                A Random Search approach was used for hyperparameter tuning of
+                the XGB models, see Figure 12.
+              </p>
+              <img class="code-img" src="img/sp_xgb_2.png" />
+              <p class="fig-label">
+                Figure 12 Code for the hyperparameter tuning of the XGB model.
+              </p>
+              <p>Normalisation improved the performance of the XGB model.</p>
+              <p>
+                The LSTM-RNN was built using Pytorch. A function was created to
+                display the data as tensors, see Figure 13. As feature scales
+                can affect neural networks, functions were created to accept
+                tensors, normalise or rescale the data, and return the data to
+                the original tensor structure, see Figure 14.
+              </p>
+              <img class="code-img" src="img/sp_dl_1.png" />
+              <p class="fig-label">
+                Figure 13 Code for the function to create the tensors.
+              </p>
+
+              <img class="code-img" src="img/sp_dl_2.png" />
+              <p class="fig-label">
+                Figure 14 Code for the functions to normalise and rescale the
+                data and return to the original tensor structure.
+              </p>
+              <p>
+                The network was created using object-oriented programming, see
+                Figure 15.
+              </p>
+              <img class="code-img" src="img/sp_dl_3.png" />
+              <p class="fig-label">
+                Figure 15 Code building the LSTM-RNN using object-oriented
+                programming.
+              </p>
+              <p>
+                NeuralNetRegressor from the skorch library and GridSearchCV from
+                the scikit-learn library were used for hyperparameter tuning of
+                the LSTM-RNN, see Figure 16.
+              </p>
+              <img class="code-img" src="img/sp_dl_4.png" />
+              <p class="fig-label">
+                Figure 16 Hyperparameter tuning of the LSTM-RNN.
+              </p>
+              <p>
+                Dataloaders were created to allow the data to be fed to the
+                network. The training loop was performed with MSEloss as the
+                criterion and Adam optimiser, Figure 17.
+              </p>
+              <img class="code-img" src="img/sp_dl_5.png" />
+              <p class="fig-label">Figure 17 Code for the training loop.</p>
+              <p>
+                The evaluation loop was then run with the training, Figure 18,
+                and testing, Figure 19, tensors.
+              </p>
+              <img class="code-img" src="img/sp_dl_6.png" />
+              <p class="fig-label">
+                Figure 18 Code for the evaluation loop with the training set.
+              </p>
+              <img class="code-img" src="img/sp_dl_7.png" />
+              <p class="fig-label">
+                Figure 19 Code for the evaluation loop with the testing set.
+              </p>
               <p class="modal-subheading">
                 Use predictions for twelve months to compare results using plots
                 and performance metrics.
@@ -268,11 +462,11 @@
                 The models were used to make predictions for the twelve-month
                 period at the end of the dataset. The predictions from the
                 models were compared using three performance metrics: RMSE, MAE
-                and R2, the results of these are show in Table x. The LSTM-RNN
+                and R2, the results of these are show in Table 2. The LSTM-RNN
                 produced the best values for the RMSE and MAE and the
                 second-best value for the R2, with the SARIMAX II model
                 producing the best R2 result. The model predictions were also
-                compared using visualisations. Figure x shows each of the
+                compared using visualisations. Figure 20 shows each of the
                 predictions made by the models plotted next to the true power
                 output values for that period. Both SARIMAX models and XGB model
                 without normalisation have a similar pattern to their
@@ -284,9 +478,9 @@
                 underestimate. The LSTM-RNN model produces a curve to estimate
                 the power output, following the pattern of the true values less
                 closely than the other models, but gives more accurate
-                predictions overall. Figure y shows linear regression for the
+                predictions overall. Figure 21 shows linear regression for the
                 predicted monthly power outputs compared against the true
-                outputs. The R2 values, Table x, correspond to these. The more
+                outputs. The R2 values, Table 2, correspond to these. The more
                 accurate the model predictions, the closer the points lie to the
                 line. Models appear to make better predictions when the true
                 power output is low, these low power output values correspond to
@@ -298,13 +492,42 @@
                 training set are predicted more accurately.
               </p>
               <img class="tab" src="img/metrics_tab.png" />
-              <p class="fig-label">Table x</p>
+              <p class="fig-label">
+                Table 2 The performance metrics used for model evaluation. RMSE
+                – root mean squared error. MAE – mean absolute error.
+              </p>
               <img class="bigger-img" src="img/truth_pred_plot.png" />
-              <p class="fig-label">Figure x</p>
+              <p class="fig-label">
+                Figure 20 A plot of the true power outputs for the 12-month
+                testing dataset alongside the predictions made by each model.
+              </p>
               <img class="bigger-img" src="img/lr.png" />
-              <p class="fig-label">Figure y</p>
+              <p class="fig-label">
+                Figure 21 Plots of the linear regression performed for each
+                model’s predictions against the true power output values.
+              </p>
 
               <p class="modal-subheading">References</p>
+
+              <p class="references">
+                Mellit, A., Massi Pavan, A., Ogliari, E., Leva, S. and Lughi, V.
+                (2020) Advanced Methods for Photovoltaic Output Power
+                Forecasting: A Review. Applied Sciences [online]. 10 (2), p.
+                487. Available from: https://www.mdpi.com/2076-3417/10/2/487
+                [Accessed 1 November 2023].
+              </p>
+              <hr />
+              <p class="gh-txt">
+                The full report, code and data can be found on GitHub:
+              </p>
+              <a
+                href="https://github.com/AliWilkinson/Solar_panel_power_forecasting/tree/main"
+                target="_blank"
+                title="Github"
+                class="gt-project-link"
+              >
+                <i class="fab fa-github"></i>
+              </a>
             </div>
           </div>
         </div>
@@ -461,6 +684,16 @@
                   >GitHub.</a
                 >
               </p>
+              <hr />
+              <p class="gh-txt">Code and data can be found on GitHub:</p>
+              <a
+                href="https://github.com/AliWilkinson/Pollution_Data_management_project/tree/main"
+                target="_blank"
+                title="Github"
+                class="gt-project-link"
+              >
+                <i class="fab fa-github"></i>
+              </a>
             </div>
           </div>
         </div>
@@ -628,6 +861,18 @@
                 dataset should be measured and included and used in the Random
                 Forest model.
               </p>
+              <hr />
+              <p class="gh-txt">
+                The full Quarto report, code and data can be found on GitHub:
+              </p>
+              <a
+                href="https://github.com/AliWilkinson/Chemical_classification_project"
+                target="_blank"
+                title="Github"
+                class="gt-project-link"
+              >
+                <i class="fab fa-github"></i>
+              </a>
             </div>
           </div>
         </div>
@@ -739,7 +984,7 @@
               <p class="fig-label">Table 2</p>
 
               <p class="modal-subheading">Data Preparation for the Models:</p>
-              <ul class="data-prep-list">
+              <ol>
                 <li>
                   The BMI column was dropped due to the categories for the
                   obesity levels being determined by the BMI score. This means
@@ -764,7 +1009,7 @@
                   Normalisation was used to ensure all features were on the same
                   scale to prevent scales affect model performance.
                 </li>
-              </ul>
+              </ol>
               <p class="modal-subheading">Classification Models:</p>
               <p>
                 Supervised learning algorithms were chosen for this problem as
@@ -822,6 +1067,7 @@
                 the engineered features.
               </p>
               <img class="modal-img" src="img/ob_img9.jpg" />
+              <p class="fig-label">Figure 5</p>
               <p class="modal-subheading">References</p>
               <p class="references">
                 Chawla, N.V., Bowyer, K.W., Hall, L.O. and Kegelmeyer, W.P.
@@ -839,13 +1085,25 @@
                 https://www.sciencedirect.com/science/article/pii/S2352340919306985
                 [Accessed 23 August 2023].
               </p>
+              <hr />
+              <p class="gh-txt">
+                The full report, code and data can be found on GitHub:
+              </p>
+              <a
+                href="https://github.com/AliWilkinson/Obesity_classification_machine_learning"
+                target="_blank"
+                title="Github"
+                class="gt-project-link"
+              >
+                <i class="fab fa-github"></i>
+              </a>
             </div>
           </div>
         </div>
       </div>
       <div class="col-md-4 projects">
         <a href="#portfolio" onclick="openModal('myModal5')">
-          <h4>Learning Analytics Project</h4>
+          <h4>Learning Analytics</h4>
           <img class="project-img" src="img/la_feature_importance.png" />
         </a>
       </div>
@@ -954,6 +1212,16 @@
               </p>
               <img class="code-img" src="img/pwl_7.png" />
               <img class="code-img" src="img/pwl_img.png" />
+              <hr />
+              <p class="gh-txt">The code and data can be found on GitHub:</p>
+              <a
+                href="https://github.com/AliWilkinson/Python_without_libraries"
+                target="_blank"
+                title="Github"
+                class="gt-project-link"
+              >
+                <i class="fab fa-github"></i>
+              </a>
             </div>
           </div>
         </div>
