@@ -1173,9 +1173,16 @@
               </p>
 
               <p>
-                Open source, anonymised data from the Open University containing
-                information on student demographics, results, and interactions
-                with the VLE, were used in this project.
+                Open source, anonymised data from the
+                <a
+                  href="https://analyse.kmi.open.ac.uk/open_dataset"
+                  target="_blank"
+                  title="Open University Learning Analytics Dataset"
+                >
+                  Open University
+                </a>
+                containing information on student demographics, results, and
+                interactions with the VLE, were used in this project.
               </p>
               <p>
                 A Jupyter notebook showing how the relevant csv were merged can
@@ -1198,6 +1205,60 @@
                 >
                   Github.</a
                 >
+              </p>
+              <p>
+                Prior to this, the data were processed for use with the machine
+                learning algorithms. The data preprocessing included: encoding
+                categorical variables, defining the binary classification
+                classes, splitting the dataset, resampling using SVM-SMOTE and
+                feature scaling for certain models. A Random Forest algorithm
+                was used to identify the most important features in the
+                classification and the top twenty of these were retained for use
+                in other models. Figure 1 shows the code for establishing the
+                feature importances from the Random Forest model and Figure 2
+                shows the features of the data and their importance in the
+                classification.
+              </p>
+              <img class="code-img" src="img/la_code_fi.png" />
+              <p class="fig-label">Figure 1. Code for feature importances.</p>
+              <img class="modal-img" src="img/la_feature_importance.png" />
+              <p class="fig-label">
+                Figure 2. Plot of the feature importance for each variable.
+              </p>
+              <p>
+                Three classification models were trained, tested, and compared:
+                Random Forest, Decision Tree, and K-Nearest Neighbours. A
+                classification and confusion matrix for each model can be seen
+                in Figure 3.
+              </p>
+              <img class="bigger-img2" src="img/la_cm.png" />
+              <p class="fig-label">
+                Figure 3. Classification report and confusion matrix for each
+                model.
+              </p>
+              <p>
+                Random Forest model performed the best regarding the Precision
+                value and was therefore chosen to be run with the validation
+                set. The results from this can be seen in Figure 4.
+              </p>
+              <img class="modal-img" src="img/la_rf_v.png" />
+              <p class="fig-label">
+                Figure 4. Classification report and confusion matrix for the
+                Random Forest model with the validation set.
+              </p>
+              <p>
+                The purpose of these classification models would be to predict
+                students who could be at risk of failing (Low Performing). This
+                could enable targeted support to be provided to them to help
+                them succeed in their courses. If these students were to be
+                classified as ‘High Performing’ by mistake, this could mean they
+                do not get supported adequately and could remain at risk of
+                failing. Therefore, the priority of these models is to minimise
+                the number of false positives which would be students that are
+                ‘Low Performing’ that get classified as ‘High Performing’. This
+                is why the Precision value is chosen as the main metric for
+                evaluating the performance of the models. Precision is the
+                metric used when the goal is to minimise false positives.
               </p>
               <hr />
               <p class="gh-txt">

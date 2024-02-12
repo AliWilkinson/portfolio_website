@@ -176,6 +176,11 @@ h4 {
   height: auto;
 }
 
+.bigger-img2 {
+  max-width: 95%;
+  height: auto;
+}
+
 .code-img {
   max-width: 50%;
   height: auto;
