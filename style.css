@@ -21,6 +21,12 @@ h1 {
   text-align: center;
 }
 
+a {
+  font-family: var(--secondary-font);
+  text-decoration: none;
+  color: var(--quaternary-color);
+}
+
 .masthead {
   background-image: url("img/nasa-Q1p7bh3SHj8-unsplash.jpg");
   background-position: center;
@@ -93,15 +99,13 @@ h4 {
   margin: 0;
 }
 
+.project-content a {
+  text-decoration: underline;
+}
+
 .project-img {
   max-width: 70%;
   height: auto;
-}
-
-a {
-  font-family: var(--secondary-font);
-  text-decoration: none;
-  color: var(--quaternary-color);
 }
 
 /* Style for the modal */
