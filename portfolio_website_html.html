@@ -567,49 +567,65 @@
             <hr />
             <div class="project-content">
               <p>
-                The dataset contains information from different air sensors
-                located around Bristol. It includes information on the sensors,
-                such as name, location and coordinates as well as data on the
-                levels of pollutants detected by the sensors.
+                The dataset contains hourly information from different air
+                quality sensors located around Bristol. It includes sensor
+                information such as name, location and coordinates, and data on
+                the levels of pollutants detected at each site.
               </p>
               <p class="modal-subheading">Relational Databases</p>
               <p>
-                An entity-relationship model was created to model the
-                relationships within the dataset. The Schema entity describes
-                the units of measurement for Readings entity. The diagram shows
-                the one-to-many relationship between the Site and Readings
-                entities with primary keys as Site_ID and Reading_ID. Site_ID is
-                the foreign key in the Readings entity.
+                An entity-relationship model was created using MySQL Workbench
+                to model the relationships within the dataset. The Schema entity
+                describes the units of measurement for Readings entity. The
+                diagram shows the one-to-many relationship between the Site and
+                Readings entities with primary keys as <em>Site_ID</em> and
+                <em>Reading_ID</em>. <em>Site_ID</em> is the foreign key in the
+                Readings entity.
               </p>
               <img class="project-img" src="img/pollution-er.png" />
               <p class="fig-label">ER diagram</p>
               <p>
-                The dataset was
-                <a
-                  href="https://github.com/AliWilkinson/Pollution_Data_management_project/blob/main/crop.py"
-                  target="_blank"
-                  title="GitHub crop.py"
-                  >cropped</a
-                >
-                for values earlier than 2010 and
-                <a
-                  href="https://github.com/AliWilkinson/Pollution_Data_management_project/blob/main/clean.py"
-                  target="_blank"
-                  title="GitHub clean.py"
-                  >cleaned</a
-                >
-                for mismatching site entries.
+                Python and Visual Studio Code were used to crop the dataset to
+                remove values before 2010 and clean the dataset for mismatching
+                site entries.
               </p>
+
+              <img class="json-img" src="img/pol_crop.png" />
+              <p class="fig-label">Cropping the dataset</p>
+
+              <img class="json-img" src="img/pol_clean.png" />
+              <p class="fig-label">Cleaning the dataset</p>
+
               <p>
-                A
-                <a
-                  href="https://github.com/AliWilkinson/Pollution_Data_management_project/blob/main/populate.py"
-                  target="_blank"
-                  title="GitHub populate.py"
-                  >python file</a
-                >
-                was written to create and populate a relational database.
+                Python and MySQL were used to create and populate the database.
               </p>
+              <img class="json-img" src="img/pol_pop1.png" />
+              <p class="fig-label">
+                Function to connect to localhost and initiate the database.
+                Function to connect to the database.
+              </p>
+              <img class="json-img" src="img/pol_pop2a.png" />
+              <br />
+              <img class="json-img" src="img/pol_pop2b.png" />
+              <p class="fig-label">
+                Function to create the tables in the database.
+              </p>
+
+              <img class="json-img" src="img/pol_pop3.png" />
+              <p class="fig-label">
+                Function to populate the Site and Schema tables.
+              </p>
+
+              <img class="json-img" src="img/pol_pop4.png" />
+              <p class="fig-label">Function to populate the Readings table.</p>
+
+              <img class="json-img" src="img/pol_pop5.png" />
+              <p class="fig-label">
+                Calling the functions to connect to localhost, create the
+                database, create a connection to the database, and create and
+                populate the tables.
+              </p>
+
               <p>SQL queries were written and executed from this database:</p>
               <div class="row">
                 <div class="col-md-4">
@@ -624,16 +640,11 @@
               </div>
               <p class="fig-label">SQL queries</p>
               <p>
-                A
-                <a
-                  href="https://github.com/AliWilkinson/Pollution_Data_management_project/blob/main/insert-100.py"
-                  target="_blank"
-                  title="GitHub insert-100"
-                  >python file</a
-                >
-                was also written to create SQL queries to insert the first 100
-                rows into the Readings entity.
+                Python was used to write a SQL file and generate SQL queries to
+                insert the first one hundred rows into the Readings table.
               </p>
+              <img class="json-img" src="img/pol_insert100.png" />
+              <p class="fig-label">Generate 100 SQL insert queries.</p>
               <p class="modal-subheading">NoSQL Databases</p>
               <p>
                 One site was taken from the relational database to be modelled
