@@ -238,6 +238,15 @@ h4 {
   font-size: 40px;
   text-decoration: none;
 }
+
+.gt-project-link-small {
+  color: var(--tertiary-color);
+  padding: 0;
+  margin: 0;
+  font-size: 25px;
+  text-decoration: none;
+}
+
 .modal-scrollable-content a:hover {
   color: var(--quaternary-color);
 }
@@ -282,113 +291,16 @@ h4 {
 .small a {
   text-decoration: underline;
 }
-/* 
 
-.email-link {
-  display: flex;
-  justify-content: center;
-  color: var(--primary-color);
-  font-size: 20px;
-  text-decoration: none;
+@media (max-width: 576px) {
+  .headshot {
+    margin: auto 25%;
+    align-items: center;
+  }
+
+  .tab,
+  .tab2 {
+    max-width: 100%;
+    height: auto;
+  }
 }
-
-.email-link:hover {
-  text-decoration: underline;
-  color: var(--primary-color);
-}
-
-.contact a {
-  color: var(--tertiary-color);
-}
-
-.contact a:hover {
-  color: var(--quaternary-color);
-}
-
-small {
-  display: block;
-  text-align: center;
-  font-weight: bold;
-  font-size: 20px;
-}
-
-/* 
-@media (max-width: 768px) {
-  .email-icons {
-    padding-top: 30px;
-  }
-
-  .name {
-    font-size: 50px;
-  }
-
-  .title {
-    font-size: 50px;
-  }
-
-  .projects-button {
-    padding: 20px;
-  }
-
-  .email,
-  .connect {
-    padding: 10%;
-  }
-
-  .email-box,
-  .connect-box {
-    max-width: 70%;
-    margin: 10% auto;
-    padding: 2%;
-    max-height: 70%;
-  }
-
-  .contact-email {
-    font-size: 15px;
-  }
-
-  small {
-    margin: 5%;
-  }
-} */
-
-/* @media (max-width: 576px) {
-  h1 {
-    font-size: 20px;
-    padding: 30px;
-  }
-
-  h2 {
-    font-size: 30px;
-  } */
-
-/* .container {
-    text-align: center;
-  }
-
-  .app-titles {
-    text-align: center;
-  }
-
-  .img-about {
-    padding: 10px;
-  }
-
-  .home-content {
-    text-align: center;
-  }
-
-  footer {
-    text-align: center;
-  }
-  .footer-title {
-    text-align: center;
-  }
-
-  .footer-text {
-    margin-bottom: 15px;
-  }
-
-  .projects-button {
-    padding: 15px;
-  } */
