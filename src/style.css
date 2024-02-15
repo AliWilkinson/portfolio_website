@@ -5,6 +5,10 @@
   --quaternary-color: #1e2022;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   max-width: 100%;
